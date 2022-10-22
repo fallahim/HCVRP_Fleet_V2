@@ -140,7 +140,7 @@ class HCVRPDataset(Dataset):
             CAPACITIES = {
                 10: [25., 50.],
                 15: [25., 50.],
-                20: [12., 25.],
+                20: [25., 50.],
                 40: [25., 50.],
                 50: [25., 50.],
                 60: [25., 50.],
@@ -152,10 +152,10 @@ class HCVRPDataset(Dataset):
 
             self.data = [
                 {
-                    'loc': torch.FloatTensor(size, 2).uniform_(0, 1),
+                    'loc': torch.FloatTensor(size, 2).uniform_(-50, 50).int().float(),
                     # Uniform 1 - 9, scaled by capacities
-                    'demand': (torch.FloatTensor(size).uniform_(0, 12).int() + 1).float(),
-                    'depot': torch.FloatTensor(2).uniform_(0, 1),
+                    'demand': (torch.FloatTensor(size).uniform_(0, 25).int() + 1).float(),
+                    'depot': torch.FloatTensor(2).uniform_(-50, 50).int().float(),
                     'capacity': torch.Tensor(CAPACITIES[size])
                 }
                 for i in range(num_samples)

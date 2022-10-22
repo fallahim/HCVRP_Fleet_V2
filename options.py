@@ -10,7 +10,7 @@ def get_options(args=None):
     # Data
     parser.add_argument('--problem', default='hcvrp', help="The problem to solve")
     parser.add_argument('--graph_size', type=int, default=20, help="The size of the problem graph")
-    parser.add_argument('--batch_size', type=int, default=1024, help='Number of instances per batch during training')
+    parser.add_argument('--batch_size', type=int, default=4096, help='Number of instances per batch during training')
     parser.add_argument('--epoch_size', type=int, default=2457600, help='Number of instances per epoch during training')
     parser.add_argument('--val_size', type=int, default=1000,
                         help='Number of instances used for reporting validation performance')
